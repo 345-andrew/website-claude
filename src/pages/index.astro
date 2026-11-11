@@ -1,0 +1,159 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../config/site';
+---
+<Base>
+  <!-- Hero -->
+  <section class="section on-dark hero">
+    <div class="container">
+      <p class="eyebrow">Enterprise middleware &amp; integration migration to Azure</p>
+      <h1>Move off legacy middleware without putting your operations at risk.</h1>
+      <p class="lead narrow">
+        Our plan-first, AI-assisted migration process keeps you in control from discovery through to cutover.
+        Your business keeps running while the platform underneath it changes.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href={site.primaryCta.href}>{site.primaryCta.label}</a>
+        <a class="btn btn-secondary" href="/how-we-work/">See how we work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The problem -->
+  <section class="section">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">The challenge</p>
+        <h2>Your integrations run the business. That's what makes them hard to move.</h2>
+        <p>
+          Orders, invoices, shipments and customer data all flow through your integration platform.
+          It has grown over years and holds business rules nobody has written down.
+          The people who built it may have moved on.
+        </p>
+        <p>
+          Now the platform is ageing, licences are rising or support is ending. You know it has to move,
+          but a failed cutover would be felt across the whole organisation.
+        </p>
+      </div>
+      <div class="grid grid-3" style="margin-top:40px">
+        <div class="card">
+          <h3>Hidden complexity</h3>
+          <p>Hundreds of interfaces, undocumented mappings and dependencies that only show up when something breaks.</p>
+        </div>
+        <div class="card">
+          <h3>Rising cost and risk</h3>
+          <p>Expensive licences, shrinking skills pools and end-of-support dates that don't move.</p>
+        </div>
+        <div class="card">
+          <h3>No room for surprises</h3>
+          <p>Business-critical processes can't pause while the technology changes underneath them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The guide -->
+  <section class="section tint">
+    <div class="container grid grid-2" style="align-items:center">
+      <div>
+        <p class="eyebrow">Why 345 Technology</p>
+        <h2>We've been where you are. We make migration calm and predictable.</h2>
+        <p>
+          We specialise in one thing: moving enterprise integration from legacy middleware to modern Azure integration.
+          We understand the technology and the business processes it supports, so we protect your operations
+          rather than just replace software.
+        </p>
+        <a class="link-arrow" href="/about/">About 345 Technology</a>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Plan-first delivery</h3>
+          <p>We agree a detailed, accountable migration plan before work begins, so you stay in control and progress is measurable.</p>
+        </div>
+        <div class="card">
+          <h3>Repeatable AI-assisted migration</h3>
+          <p>AI-assisted discovery, build and validation make each migration efficient, consistent and governable.</p>
+        </div>
+        <div class="card">
+          <h3>Middleware + process expertise</h3>
+          <p>We know integration platforms and the business processes behind them, so nothing important is lost in translation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The plan -->
+  <section class="section">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps to a modern integration platform</h2>
+      </div>
+      <div class="grid grid-3" style="margin-top:32px">
+        <div class="card">
+          <p class="stat">1</p>
+          <h3>Book a free assessment</h3>
+          <p>We use AI-assisted analysis to inventory and size your estate, then show you complexity, risk and an indicative cost.</p>
+        </div>
+        <div class="card">
+          <p class="stat">2</p>
+          <h3>Agree the migration plan</h3>
+          <p>Together we set the sequence, cutover approach, rollback options and who is accountable for each decision.</p>
+        </div>
+        <div class="card">
+          <p class="stat">3</p>
+          <h3>Migrate with confidence</h3>
+          <p>We build, test and release in controlled waves, with hypercare after each cutover. You see progress throughout.</p>
+        </div>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href={site.primaryCta.href}>{site.primaryCta.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we migrate -->
+  <section class="section tint">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">What we migrate</p>
+        <h2>From the platforms you have to modern Azure integration</h2>
+        <p>We migrate integration platforms, API management, messaging, legacy data stores and scheduled automation.</p>
+      </div>
+      <ul class="tags" style="margin-top:24px">
+        <li>Microsoft BizTalk Server</li><li>MuleSoft</li><li>IBM App Connect Enterprise</li>
+        <li>IBM Integration Bus</li><li>IBM WebSphere Message Broker</li><li>Boomi</li>
+        <li>Software AG webMethods</li><li>Oracle Service Bus</li><li>SAP Integration Suite</li>
+        <li>Apigee</li><li>IBM API Connect</li><li>Amazon API Gateway</li>
+        <li>IBM MQ</li><li>MSMQ</li><li>EDI &amp; AS2</li><li>Control-M</li>
+      </ul>
+      <p style="margin-top:24px"><a class="link-arrow" href="/what-we-migrate/">See everything we migrate</a></p>
+    </div>
+  </section>
+
+  <!-- Success -->
+  <section class="section">
+    <div class="container grid grid-2">
+      <div>
+        <p class="eyebrow">What success looks like</p>
+        <h2>A platform your team can run, change and trust</h2>
+      </div>
+      <ul class="checklist">
+        <li>Business processes keep running through every cutover</li>
+        <li>Every interface is documented, tested and observable</li>
+        <li>Security, identity and monitoring are cleaned up along the way</li>
+        <li>Automated testing and deployment are in place for future change</li>
+        <li>Legacy licences and infrastructure are retired on a known date</li>
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .hero { padding-top: 72px; padding-bottom: 72px; }
+  @media (min-width: 768px) { .hero { padding-top: 120px; padding-bottom: 120px; } }
+  .hero h1 { max-width: 900px; }
+</style>

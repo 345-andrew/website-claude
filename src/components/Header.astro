@@ -1,0 +1,61 @@
+---
+import { site, nav } from '../config/site';
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => (path.startsWith(href) ? 'page' : undefined);
+---
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand" aria-label="345 Technology home">
+      <img src="/images/logo-blue.png" alt="345 Technology" width="72" height="72" />
+    </a>
+
+    <nav class="desktop" aria-label="Main">
+      <ul>
+        {nav.map((item) => <li><a href={item.href} aria-current={isCurrent(item.href)}>{item.label}</a></li>)}
+      </ul>
+      <a class="btn btn-primary" href={site.primaryCta.href}>{site.primaryCta.label}</a>
+    </nav>
+
+    <details class="mobile">
+      <summary>Menu</summary>
+      <nav aria-label="Main (mobile)">
+        <ul>
+          {nav.map((item) => <li><a href={item.href} aria-current={isCurrent(item.href)}>{item.label}</a></li>)}
+        </ul>
+        <a class="btn btn-primary" href={site.primaryCta.href}>{site.primaryCta.label}</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header { border-bottom: 1px solid var(--line); background: var(--white); position: sticky; top: 0; z-index: 50; }
+  .bar { display: flex; align-items: center; justify-content: space-between; min-height: 88px; gap: 24px; }
+  .brand img { width: 72px; height: 72px; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li a { text-decoration: none; color: var(--ink); font-weight: 500; }
+  li a:hover { color: var(--blue); text-decoration: underline; }
+  li a[aria-current='page'] { color: var(--blue); font-weight: 700; }
+
+  .desktop { display: none; }
+  .mobile summary {
+    list-style: none; cursor: pointer; font-size: 16px; font-weight: 600; color: var(--blue);
+    padding: 10px 16px; min-height: 44px; border: 1px solid var(--line); border-radius: var(--radius);
+  }
+  .mobile summary::-webkit-details-marker { display: none; }
+  .mobile { border: 0; padding: 0; }
+  .mobile nav {
+    position: absolute; left: 0; right: 0; top: 88px; background: var(--white);
+    border-bottom: 1px solid var(--line); padding: 8px 24px 24px;
+    box-shadow: 0 8px 16px rgba(0, 43, 80, 0.08);
+  }
+  .mobile li a { display: block; padding: 12px 0; }
+  .mobile .btn { margin-top: 12px; width: 100%; }
+
+  @media (min-width: 1100px) {
+    .mobile { display: none; }
+    .desktop { display: flex; align-items: center; gap: 32px; }
+    .desktop ul { display: flex; gap: 24px; }
+    .desktop li a { font-size: 16px; }
+  }
+</style>

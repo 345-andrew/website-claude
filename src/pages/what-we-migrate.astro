@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const groups = [
+  {
+    title: 'Integration platforms & enterprise service buses',
+    text: 'The core of your integration estate: orchestrations, maps, adapters and business rules.',
+    items: ['Microsoft BizTalk Server', 'MuleSoft', 'IBM App Connect Enterprise (ACE)', 'IBM Integration Bus (IIB)',
+      'IBM WebSphere Message Broker', 'Boomi', 'Software AG webMethods', 'Legacy Azure Logic Apps',
+      'Power Automate', 'Oracle Service Bus', 'Oracle OCI', 'SAP Integration Suite'],
+  },
+  {
+    title: 'API management',
+    text: 'Gateways, policies, products and developer portals moved to Azure API Management.',
+    items: ['MuleSoft Anypoint Platform', 'Apigee', 'IBM API Connect', 'Amazon API Gateway'],
+  },
+  {
+    title: 'APIs, web services & messaging',
+    text: 'The protocols and endpoints your partners and systems rely on every day.',
+    items: ['EDI', 'AS2', 'SOAP web services', 'XML services', 'HTTP endpoints & webhooks',
+      'Legacy integration endpoints', 'MSMQ', 'IBM MQ (MQSeries)'],
+  },
+  {
+    title: 'Legacy data stores',
+    text: 'The ad hoc persistence that grows up around integration, moved to managed, secure services.',
+    items: ['Local databases', 'File drops', 'SFTP sites', 'Custom tables'],
+  },
+  {
+    title: 'Legacy automation',
+    text: 'Scheduled jobs and scripts brought under proper control and monitoring.',
+    items: ['Control-M', 'Windows Task Scheduler', 'SQL Server Agent jobs', 'Ad hoc batch scripts'],
+  },
+];
+---
+<Base title="What we migrate" description="The middleware, API management, messaging, data stores and automation 345 Technology migrates to modern Azure integration.">
+  <section class="section on-dark">
+    <div class="container narrow">
+      <p class="eyebrow">What we migrate</p>
+      <h1>Whatever runs your integrations today, we can move it to Azure.</h1>
+      <p class="lead">We migrate the full integration estate, not just the main platform, so nothing is left behind on old infrastructure.</p>
+    </div>
+  </section>
+
+  {groups.map((g, i) => (
+    <section class={`section ${i % 2 ? 'tint' : ''}`}>
+      <div class="container grid grid-2">
+        <div>
+          <h2>{g.title}</h2>
+          <p>{g.text}</p>
+        </div>
+        <ul class="tags">{g.items.map((item) => <li>{item}</li>)}</ul>
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Cleaned up along the way</h2>
+      <p>These aren't migrations in themselves, but every project leaves them in better shape than we found them:</p>
+      <ul class="checklist">
+        <li>Security and identity</li>
+        <li>Observability and operations</li>
+        <li>DevOps and infrastructure as code</li>
+        <li>Automated testing and automated deployment</li>
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand heading="Not sure what's in your estate?" text="That's what the free assessment is for. We'll inventory and size your interfaces and show you what a migration would involve." />
+</Base>

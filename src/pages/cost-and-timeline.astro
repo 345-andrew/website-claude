@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+<Base title="Cost & timeline" description="What a middleware migration typically costs and how long it takes, explained plainly.">
+  <section class="section on-dark">
+    <div class="container narrow">
+      <p class="eyebrow">Cost &amp; timeline</p>
+      <h1>What does a middleware migration cost, and how long does it take?</h1>
+      <p class="lead">You shouldn't have to sit through a sales cycle to get a sense of scale. Here are our typical figures, and what changes them.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <div class="card">
+        <p class="eyebrow">Typical cost</p>
+        <p class="stat">£3,000–£5,000</p>
+        <p><strong>per interface, all-in.</strong> That covers discovery, analysis, infrastructure, solution build, automated testing, release and hypercare.</p>
+        <p>Your actual figure depends on the source technology and the complexity of each interface. We present it after the assessment.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Typical timeline</p>
+        <p class="stat">6–12 months</p>
+        <p>As a guide, around <strong>30 interfaces take about 6 months</strong> and <strong>100 interfaces take about 12 months</strong>.</p>
+        <p>The pace is usually set by how quickly your organisation can accept change, not by how fast the migration can be built.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="container narrow">
+      <h2>Common questions</h2>
+      <details>
+        <summary>What makes an interface more or less expensive?</summary>
+        <p>The source platform, the number of systems involved, the complexity of the mapping and business rules, and how much documentation already exists.</p>
+      </details>
+      <details>
+        <summary>Is the assessment really free?</summary>
+        <p>Yes. Our AI-assisted assessment and sizing is free of charge. You get an inventory, a view of complexity and risk, and an indicative cost and timeline.</p>
+      </details>
+      <details>
+        <summary>Can we migrate in phases?</summary>
+        <p>Yes. Most migrations run in waves, so value arrives early and each cutover is small and controlled.</p>
+      </details>
+      <details>
+        <summary>What happens after go-live?</summary>
+        <p>Each wave includes hypercare until it is stable. Your team is left with documented, tested, observable integrations.</p>
+      </details>
+    </div>
+  </section>
+
+  <CtaBand heading="Get a figure for your estate" />
+</Base>

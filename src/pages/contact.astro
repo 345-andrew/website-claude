@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import HubSpotForm from '../components/HubSpotForm.astro';
+import { site } from '../config/site';
+---
+<Base title="Contact" description="Talk to 345 Technology about your middleware migration.">
+  <section class="section on-dark">
+    <div class="container narrow">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's talk about your integration estate.</h1>
+      <p class="lead">Tell us a little about where you are today. We'll get back to you within one working day.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <div>
+        <h2>Send us a message</h2>
+        <HubSpotForm form="contact" />
+      </div>
+      <div>
+        <h2>Prefer email?</h2>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <h2 style="margin-top:40px">Ready to start?</h2>
+        <p>Skip straight to a free AI-assisted assessment of your estate.</p>
+        <a class="btn btn-primary" href={site.primaryCta.href}>{site.primaryCta.label}</a>
+      </div>
+    </div>
+  </section>
+</Base>

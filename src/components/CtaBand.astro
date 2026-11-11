@@ -1,0 +1,18 @@
+---
+import { site } from '../config/site';
+interface Props { heading?: string; text?: string }
+const {
+  heading = 'Start with a clear picture of your estate',
+  text = 'Our AI-assisted assessment and sizing is free. You get an inventory of your interfaces, a view of complexity and risk, and an indicative plan, cost and timeline.',
+} = Astro.props;
+---
+<section class="section on-dark">
+  <div class="container narrow">
+    <h2>{heading}</h2>
+    <p class="lead">{text}</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href={site.primaryCta.href}>{site.primaryCta.label}</a>
+      <a class="btn btn-secondary" href="/contact/">Talk to us first</a>
+    </div>
+  </div>
+</section>

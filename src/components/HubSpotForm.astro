@@ -1,0 +1,24 @@
+---
+// Embeds a HubSpot form. Usage: <HubSpotForm form="assessment" />
+// Form IDs and the HubSpot account ID are set in src/config/site.ts.
+import { integrations, site } from '../config/site';
+
+interface Props { form: keyof typeof integrations.forms }
+const { form } = Astro.props;
+const formId = integrations.forms[form];
+const { hubspotPortalId: portalId, hubspotRegion: region } = integrations;
+const ready = Boolean(formId && portalId);
+const target = `hs-form-${form}`;
+---
+{ready ? (
+  <div id={target} class="hs-form-wrap"></div>
+  <script is:inline src={`//js-${region}.hsforms.net/forms/embed/v2.js`} charset="utf-8"></script>
+  <script is:inline define:vars={{ region, portalId, formId, target }}>
+    hbspt.forms.create({ region, portalId, formId, target: '#' + target });
+  </script>
+) : (
+  <div class="form-placeholder">
+    <p><strong>Form coming soon.</strong> The HubSpot form will appear here once its ID is added.</p>
+    <p>In the meantime, email <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  </div>
+)}

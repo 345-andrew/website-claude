@@ -1,0 +1,35 @@
+---
+import { site, nav } from '../config/site';
+const year = new Date().getFullYear();
+---
+<footer class="on-dark">
+  <div class="container grid">
+    <div>
+      <img src="/images/logo-white.png" alt="345 Technology" width="140" height="140" />
+      <p class="tagline">{site.tagline}</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        <li><a href={site.primaryCta.href}>{site.primaryCta.label}</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <p class="small">© {year} 345 Technology. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer { padding: 64px 0 48px; }
+  .grid { gap: 40px; }
+  @media (min-width: 768px) { .grid { grid-template-columns: 1.2fr 1fr 1fr; } }
+  img { width: 140px; height: auto; margin-bottom: 16px; }
+  .tagline { color: #d6dde5; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { margin-bottom: 10px; }
+  a { text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .small { font-size: 14px; color: #b8c4d1; }
+</style>

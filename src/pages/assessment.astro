@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import HubSpotForm from '../components/HubSpotForm.astro';
+---
+<Base title="Book a migration assessment" description="Book a free AI-assisted assessment and sizing of your integration estate.">
+  <section class="section on-dark">
+    <div class="container narrow">
+      <p class="eyebrow">Free migration assessment</p>
+      <h1>Know exactly what you're moving before you commit to anything.</h1>
+      <p class="lead">Our AI-assisted assessment and sizing is free of charge. It's the first step in every 345 Technology migration.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <div>
+        <h2>What you get</h2>
+        <ul class="checklist">
+          <li>An inventory of your interfaces and their dependencies</li>
+          <li>A view of complexity and risk across the estate</li>
+          <li>An indicative migration plan, cost and timeline</li>
+          <li>Clear next steps, with no obligation</li>
+        </ul>
+        <h2 style="margin-top:40px">How it works</h2>
+        <p>We start with a short conversation about your platform and goals. Then we run our AI-assisted analysis and walk you through the findings.</p>
+      </div>
+      <div>
+        <h2>Request your assessment</h2>
+        <HubSpotForm form="assessment" />
+      </div>
+    </div>
+  </section>
+</Base>

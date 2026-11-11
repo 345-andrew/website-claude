@@ -23,7 +23,7 @@ This site is built and maintained **only by prompting Claude**. Nobody edits it 
 - Voice: clear, confident, open, warm, calm. Short sentences, plain UK English.
 - StoryBrand: the customer is the hero and 345 is the guide. Lead with their problem and their outcome.
 - Avoid: "seamless", "risk-free", "revolutionary", "game-changing", "cutting-edge", "next-generation", "digital transformation", and generic "AI-powered". Say "AI-assisted".
-- Never invent statistics, customer names, case studies or guarantees. Use only figures from the brief: £3–5K per interface all-in; ~30 interfaces ≈ 6 months, ~100 ≈ 12 months; free AI-assisted assessment.
+- Never invent statistics, customer names, case studies or guarantees. Use only approved figures: £3–5K per interface all-in; ~30 interfaces ≈ 6 months, ~100 ≈ 12 months; free AI-assisted assessment (about one week); assessment + proof of value £10,000; the anonymised "Recent work" figures on the home page. The only named customer approved so far is The Guinness Partnership (Owen Thomas testimonial, quote verbatim). Guarantee wording: "Ask us about our safe-cutover guarantee." only.
 - Accessibility: WCAG 2.2 AA, visible focus, alt text on informative images, 44px touch targets.
 - Imagery: no server-rack clichés, glowing code, globes, handshakes or sci-fi AI art.
 

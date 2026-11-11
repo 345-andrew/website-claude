@@ -19,7 +19,7 @@ This site is built and maintained **only by prompting Claude**. Nobody edits it 
 ## Brand (see project doc "345_Technology_Brand_Guidelines_Draft")
 - Tagline: "Confident migration, without disruption."
 - Primary CTA label: "Book a migration assessment" → `/assessment/`.
-- Colours: dark blue #002B50 anchors everything. Accent (currently amber #F59830) is for CTAs and small highlights only, at no more than 10% of the page.
+- Colours: dark blue #002B50 anchors everything. Accent is Option B: fuchsia #C93089 (hover #A80273, pressed #850159, white text) for CTAs and bold highlights only, at no more than 10% of the page. Lilac #B89AF7 (`--accent-2`) is a supporting accent for backgrounds, diagrams and tags, never the primary CTA.
 - Voice: clear, confident, open, warm, calm. Short sentences, plain UK English.
 - StoryBrand: the customer is the hero and 345 is the guide. Lead with their problem and their outcome.
 - Avoid: "seamless", "risk-free", "revolutionary", "game-changing", "cutting-edge", "next-generation", "digital transformation", and generic "AI-powered". Say "AI-assisted".

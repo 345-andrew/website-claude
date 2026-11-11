@@ -1,7 +1,9 @@
 /* 345 Technology — design tokens from Brand Guidelines (draft, Nov 2026).
-   Accent is Option A (warm amber) pending final decision.
-   To switch to Option B, swap the three --accent values for:
-   #C93089 / #A80273 / #850159 and set --accent-text to #FFFFFF. */
+   Accent is Option B (fuchsia + lilac).
+   --accent* = fuchsia, for CTAs and bold highlights only (white text: 4.9:1).
+   --accent-2 = lilac secondary accent, for background accents, diagrams and
+   tags; never the primary CTA. Use lilac (not fuchsia) for small marks on
+   dark blue, where fuchsia falls below 3:1. */
 :root {
   --blue: #002b50;
   --off-white: #f7f8fa;
@@ -10,10 +12,11 @@
   --grey: #667085;
   --line: #e6e9ee;
 
-  --accent: #f59830;
-  --accent-hover: #d9722b;
-  --accent-pressed: #b36324;
-  --accent-text: #1e2329;
+  --accent: #c93089;
+  --accent-hover: #a80273;
+  --accent-pressed: #850159;
+  --accent-text: #ffffff;
+  --accent-2: #b89af7;
 
   --font: 'Aptos', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
   --radius: 8px;
@@ -122,7 +125,7 @@ p { margin: 0 0 16px; }
   content: ''; position: absolute; left: 4px; top: 8px; width: 14px; height: 8px;
   border-left: 2px solid var(--blue); border-bottom: 2px solid var(--blue); transform: rotate(-45deg);
 }
-.on-dark .checklist li::before { border-color: var(--accent); }
+.on-dark .checklist li::before { border-color: var(--accent-2); }
 
 .stat { font-size: 40px; font-weight: 700; color: var(--blue); line-height: 1.1; margin-bottom: 8px; }
 

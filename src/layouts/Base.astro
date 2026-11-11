@@ -7,8 +7,10 @@ import { site, integrations } from '../config/site';
 interface Props {
   title?: string;
   description?: string;
+  /** Landing pages: hide the main navigation; the header CTA links here (e.g. '#book'). */
+  landingCta?: string;
 }
-const { title, description = site.description } = Astro.props;
+const { title, description = site.description, landingCta } = Astro.props;
 const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.tagline}`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const { hubspotPortalId, hubspotRegion, ga4MeasurementId } = integrations;
@@ -52,7 +54,7 @@ const { hubspotPortalId, hubspotRegion, ga4MeasurementId } = integrations;
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <Header />
+    <Header landingCta={landingCta} />
     <main id="main">
       <slot />
     </main>

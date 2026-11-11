@@ -1,0 +1,309 @@
+---
+// Campaign landing page: BizTalk Server to Azure migration.
+// Goal: one conversion — a booked migration assessment (form at #book).
+// Support dates are from Microsoft Lifecycle (learn.microsoft.com/lifecycle),
+// checked November 2026. Re-check them before reusing this page in a campaign.
+import Base from '../layouts/Base.astro';
+import HubSpotForm from '../components/HubSpotForm.astro';
+import { site } from '../config/site';
+
+const book = '#book';
+
+const versions = [
+  {
+    name: 'BizTalk Server 2013 R2 and earlier',
+    status: 'Out of support',
+    tone: 'ended',
+    detail: 'All support for 2013 R2 ended on 11 July 2023. Earlier versions ended before that. No security updates, no fixes, no help from Microsoft.',
+  },
+  {
+    name: 'BizTalk Server 2016',
+    status: 'All support ends 11 January 2027',
+    tone: 'urgent',
+    countdown: '2027-01-11',
+    detail: 'After this date there are no more security updates or fixes. BizTalk 2016 is not eligible for Microsoft’s paid extended support offer.',
+  },
+  {
+    name: 'BizTalk Server 2020 (the final version)',
+    status: 'Mainstream support ends 11 April 2028',
+    tone: 'warning',
+    detail: 'Microsoft plans a paid, time-limited support option until April 2030, for customers with active Software Assurance covering every licensed core. After that, support ends completely. Sales are expected to end on 31 March 2027.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can we keep running BizTalk Server 2016 after January 2027?',
+    a: 'It will keep running, but Microsoft will no longer provide security updates, fixes or support. Any new vulnerability stays open, and if something breaks you are on your own.',
+  },
+  {
+    q: 'Should we upgrade to BizTalk Server 2020 first?',
+    a: 'Upgrading is a full project in its own right, and it only buys time: BizTalk Server 2020 is the final version, and its support ends by April 2030. Microsoft’s own guidance points customers to Azure Logic Apps. For most organisations, migrating once is lower risk than upgrading and then migrating.',
+  },
+  {
+    q: 'How long does a BizTalk migration take?',
+    a: 'As a guide, around 30 interfaces take about 6 months and around 100 interfaces take about 12 months. The pace is usually set by how quickly your organisation can absorb change. The assessment gives you a plan and timeline for your own estate.',
+  },
+  {
+    q: 'What does it cost?',
+    a: 'Typically £3,000–£5,000 per interface, all-in: discovery, analysis, infrastructure, build, automated testing, go-live and close support afterwards. Your actual figure depends on complexity, and we present it after the assessment.',
+  },
+  {
+    q: 'Do we have to move everything at once?',
+    a: 'No. We migrate in small, controlled phases, with a way back at every go-live. Your business keeps running throughout.',
+  },
+  {
+    q: 'What happens to our data during the assessment?',
+    a: 'We analyse the configuration you export, not the business data flowing through it. We use GitHub Copilot Enterprise under our own licence, so your data is not used to train AI models. We agree in advance what we receive, where it is stored and when it is deleted.',
+  },
+];
+---
+<Base
+  title="BizTalk Server to Azure migration"
+  description="BizTalk Server 2016 support ends on 11 January 2027 and BizTalk Server 2020 is the final version. Move to Azure with a plan-first migration. Book a free one-week assessment."
+  landingCta={book}
+>
+  <!-- Hero -->
+  <section class="section on-dark hero">
+    <div class="container grid hero-grid">
+      <div>
+        <p class="eyebrow">BizTalk Server to Azure migration</p>
+        <h1>Your BizTalk platform is running out of support. Move it before it becomes a risk.</h1>
+        <p class="lead">
+          BizTalk Server 2016 loses all support on <strong>11 January 2027</strong>. BizTalk Server 2020 is the final version.
+          We move your integrations to Azure in a planned, controlled way, so the business keeps running.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={book}>{site.primaryCta.label}</a>
+          <a class="btn btn-secondary" href="#dates">Check your version’s dates</a>
+        </div>
+        <p class="reassure">Free one-week assessment · No obligation · A clear plan, cost and timeline</p>
+      </div>
+      <div class="countdown-card" aria-live="polite">
+        <p class="eyebrow">BizTalk Server 2016 end of support</p>
+        <p class="big" data-countdown="2027-01-11">11 January 2027</p>
+        <p class="small">After this date: no security updates, no fixes, no Microsoft support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dates -->
+  <section class="section" id="dates">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">Microsoft support dates</p>
+        <h2>Where does your BizTalk version stand?</h2>
+        <p>Every version of BizTalk Server is now out of support or has a fixed end date. There will be no new version.</p>
+      </div>
+      <ol class="timeline">
+        {versions.map((v) => (
+          <li class={`tl-item ${v.tone}`}>
+            <h3>{v.name}</h3>
+            <p class="status"><span class="badge">{v.tone === 'ended' ? 'Ended' : v.tone === 'urgent' ? 'Ending soon' : 'End date set'}</span> {v.status}</p>
+            {v.countdown && <p class="days" data-countdown={v.countdown}></p>}
+            <p>{v.detail}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="card stack-note">
+        <h3>It isn’t only BizTalk</h3>
+        <p>Many BizTalk 2016 platforms run on Windows Server 2016 and SQL Server 2016. All support for Windows Server 2016 ends on 12 January 2027. Support for SQL Server 2016 ended on 14 July 2026, with only paid security updates available. Keeping BizTalk means keeping an ageing stack around it.</p>
+      </div>
+      <p class="source">Source: Microsoft Lifecycle and Microsoft’s BizTalk Server 2020 end-of-sale announcement, checked November 2026.</p>
+    </div>
+  </section>
+
+  <!-- Operational risk -->
+  <section class="section tint">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">The operational risk</p>
+        <h2>What running out-of-date BizTalk really means</h2>
+        <p>Your orders, invoices, shipments and partner messages flow through BizTalk every day. When the platform falls out of support, the risk lands on the business, not just IT.</p>
+      </div>
+      <div class="grid grid-2" style="margin-top:32px">
+        <div class="card">
+          <h3>Security gaps that stay open</h3>
+          <p>Without security updates, every newly found vulnerability stays open on a platform that touches your most important data and trading partners.</p>
+        </div>
+        <div class="card">
+          <h3>No help when it breaks</h3>
+          <p>No fixes or incident support from Microsoft. You depend on a shrinking pool of BizTalk specialists, often just one or two people who know how it all works.</p>
+        </div>
+        <div class="card">
+          <h3>Audit and compliance findings</h3>
+          <p>Unsupported software at the centre of business-critical processes is hard to defend to auditors, regulators and your board.</p>
+        </div>
+        <div class="card">
+          <h3>Rising cost of standing still</h3>
+          <p>Licences, ageing servers and paid support options keep costing money, while the date you must move by stays fixed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section class="section">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">Your options</p>
+        <h2>Three ways forward. Only one ends the problem.</h2>
+      </div>
+      <div class="grid grid-3" style="margin-top:32px">
+        <div class="card option">
+          <h3>Do nothing</h3>
+          <p>The platform keeps running, but without support. Risk grows every month, and the migration still has to happen, only now under pressure.</p>
+        </div>
+        <div class="card option">
+          <h3>Upgrade to BizTalk 2020</h3>
+          <p>A full upgrade project that buys time to 2028, or to 2030 with paid support. Then you migrate anyway.</p>
+        </div>
+        <div class="card option recommended">
+          <p class="eyebrow">Recommended</p>
+          <h3>Migrate to Azure</h3>
+          <p>Move once, to Microsoft’s current integration platform on Azure. You retire BizTalk, its servers and its licences on a date you choose.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we de-risk it -->
+  <section class="section tint">
+    <div class="container grid grid-2">
+      <div>
+        <p class="eyebrow">How we make it safe</p>
+        <h2>A plan-first migration, with a way back at every step</h2>
+        <p>BizTalk migration is what we specialise in. We understand both the technology and the business processes it carries.</p>
+      </div>
+      <ul class="checklist">
+        <li>We map every BizTalk application, data mapping, business rule and partner connection before any build starts</li>
+        <li>You agree a fixed price for each phase before it begins</li>
+        <li>Automated tests prove the new version behaves like the old one before anything goes live</li>
+        <li>Every switchover can be rolled back in one step. Ask us about our safe-cutover guarantee.</li>
+        <li>At the end, we retire BizTalk and hand everything over to your team, documented and tested</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="section">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">Proven on BizTalk</p>
+        <h2>12 BizTalk applications migrated to Azure and handed over</h2>
+        <p>For a UK housing association, we migrated 12 BizTalk applications like-for-like to Azure, then handed them over to the customer’s team.</p>
+      </div>
+      <figure class="quote">
+        <blockquote>
+          <p>“345 Technology were an excellent partner throughout our BizTalk migration project. Their team consistently demonstrated a high level of technical expertise, combined with the flexibility and adaptability needed to respond to changing requirements and challenges as the project progressed. What stood out most was their ability to deliver with confidence and professionalism while maintaining a collaborative and pragmatic approach. The quality of delivery was exceptional, and the transition into production was seamless, with minimal disruption to the business. We found the team knowledgeable, responsive, and easy to work with, and would have no hesitation in recommending 345 Technology to organisations undertaking integration modernisation or migration projects.”</p>
+        </blockquote>
+        <figcaption><strong>Owen Thomas</strong>, The Guinness Partnership</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Book -->
+  <section class="section on-dark" id="book">
+    <div class="container grid grid-2 book-grid">
+      <div>
+        <p class="eyebrow">Free BizTalk migration assessment</p>
+        <h2>Know exactly what you’re moving, and what it will take, in about a week</h2>
+        <ul class="checklist">
+          <li>A report on your BizTalk estate, the Azure services it should move to, and indicative estimates</li>
+          <li>A costed migration backlog you can plan and budget against</li>
+          <li>The full underlying data, including your complete BizTalk inventory, for you to keep</li>
+          <li>A playback session with your team</li>
+        </ul>
+        <h3 style="margin-top:32px">What we need from you</h3>
+        <ul class="checklist">
+          <li>An export of your BizTalk applications</li>
+          <li>Access to run our analysis tools, agreed with you before we start</li>
+          <li>Time with the people who know your platform</li>
+        </ul>
+        <p class="pov">Want to see it working on your own platform first? Ask about our <strong>assessment + proof of value</strong>, £10,000 + VAT.</p>
+      </div>
+      <div class="form-card">
+        <h2>Book your free assessment</h2>
+        <p>Tell us a little about your BizTalk platform. We’ll get back to you within one working day.</p>
+        <HubSpotForm form="assessment" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>BizTalk migration questions</h2>
+      {faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+      <div class="btn-row">
+        <a class="btn btn-primary" href={book}>{site.primaryCta.label}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline>
+  // Shows "N days away" next to fixed end-of-support dates. Without JS, the date alone shows.
+  (function () {
+    var now = new Date();
+    document.querySelectorAll('[data-countdown]').forEach(function (el) {
+      var end = new Date(el.getAttribute('data-countdown') + 'T23:59:59');
+      var days = Math.ceil((end - now) / 86400000);
+      var text = days > 1 ? days + ' days away' : days === 1 ? 'Tomorrow' : 'Support has ended';
+      if (el.classList.contains('big')) {
+        el.innerHTML = '<span class="num">' + (days > 0 ? days : 0) + '</span> <span class="unit">' + (days > 0 ? 'days left' : 'Support has ended') + '</span>';
+      } else {
+        el.textContent = text;
+      }
+    });
+  })();
+</script>
+
+<style>
+  .hero { padding-top: 56px; padding-bottom: 56px; }
+  @media (min-width: 768px) { .hero { padding-top: 96px; padding-bottom: 96px; } }
+  .hero-grid { gap: 40px; align-items: center; }
+  @media (min-width: 960px) { .hero-grid { grid-template-columns: 1.6fr 1fr; } }
+  .reassure { margin-top: 20px; font-size: 15px; color: #d6dde5; }
+
+  .countdown-card {
+    border: 1px solid rgba(255, 255, 255, 0.25); border-radius: var(--radius);
+    padding: 28px; background: rgba(255, 255, 255, 0.06);
+  }
+  .countdown-card .big { font-size: 32px; font-weight: 700; line-height: 1.1; margin: 8px 0 12px; }
+  .countdown-card .big :global(.num) { font-size: 64px; display: block; color: var(--accent-2); }
+  .countdown-card .big :global(.unit) { font-size: 22px; }
+  .countdown-card .small { font-size: 15px; color: #d6dde5; margin: 0; }
+
+  .timeline { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 16px; }
+  @media (min-width: 900px) { .timeline { grid-template-columns: repeat(3, 1fr); } }
+  .tl-item { border: 1px solid var(--line); border-top: 6px solid var(--grey); border-radius: var(--radius); padding: 24px; }
+  .tl-item h3 { font-size: 20px; }
+  .tl-item.ended { border-top-color: var(--ink); }
+  .tl-item.urgent { border-top-color: var(--accent); }
+  .tl-item.warning { border-top-color: var(--accent-2); }
+  .status { font-weight: 700; color: var(--blue); }
+  .badge {
+    display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 999px; margin-right: 6px; background: var(--off-white); border: 1px solid var(--line); color: var(--ink);
+  }
+  .urgent .badge { background: var(--accent); border-color: var(--accent); color: var(--white); }
+  .days { font-weight: 700; color: var(--accent-hover); }
+  .days:empty { display: none; }
+  .stack-note { margin-top: 24px; background: var(--off-white); }
+  .source { margin-top: 16px; font-size: 14px; color: var(--grey); }
+
+  .option.recommended { border: 2px solid var(--blue); }
+
+  .book-grid { gap: 40px; }
+  .pov { margin-top: 24px; color: #d6dde5; }
+  .form-card { background: var(--white); color: var(--ink); border-radius: var(--radius); padding: 32px; }
+  .form-card h2 { color: var(--blue); font-size: 28px; }
+  .form-card :global(a) { color: var(--blue); }
+  .form-card :global(:focus-visible) { outline-color: var(--blue); }
+</style>
